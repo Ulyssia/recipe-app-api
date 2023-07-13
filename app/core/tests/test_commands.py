@@ -3,15 +3,15 @@ Test Django custome commands
 """
 from unittest.mock import patch
 
-from psycropg2 import OperationalError as Psycopg2Error
+from psycopg2 import OperationalError as Psycopg2Error
 
 from django.core.management import call_command
 from django.db.utils import OperationalError
-from django.test import SimpleTetCase
+from django.test import SimpleTestCase
 
 """mock behaviour/command of database"""
 @patch('core.management.commands.wait_for_db.Command.check')
-class CommandTests(SimpleTetCase):
+class CommandTests(SimpleTestCase):
     """Test Commands"""
     
     def test_wait_for_db_ready(self, patched_check):
